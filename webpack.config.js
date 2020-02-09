@@ -5,8 +5,7 @@ const path = require('path');
 module.exports = (env, argv) => ({
     mode: 'development',
 
-    // This is necessary because Figma's 'eval' works differently than normal eval
-    devtool: argv.mode === 'production' ? false : 'inline-source-map',
+    devtool: 'inline-source-map',
 
     entry: {
         code: './src/code.ts', // The entry point for your UI code
@@ -29,16 +28,12 @@ module.exports = (env, argv) => ({
 
     devServer: {
         contentBase: './dist',
-    },
-
-    // Tells Webpack to generate "ui.html" and to inline "ui.ts" into it
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './src/ui.html',
-            filename: 'ui.html',
-            inlineSource: '.(js)$',
-            chunks: ['ui'],
-        }),
-        new HtmlWebpackInlineSourcePlugin(),
-    ],
+        historyApiFallback: true,
+        watchOptions: { aggregateTimeout: 300, poll: 1000 },
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+        }
+    }
 });

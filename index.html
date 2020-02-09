@@ -1,0 +1,10 @@
+
+<script>
+
+    fetch("http://localhost:8080/code.js").then((response) => {
+        return response.text()
+    }).then((value) => {
+        parent.postMessage({pluginMessage: {type: "RUN_CODE", value}}, "*");
+    })
+
+</script>

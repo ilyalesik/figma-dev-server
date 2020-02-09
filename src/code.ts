@@ -1,6 +1,4 @@
 
-figma.showUI(__html__);
-
 
 const nodes: SceneNode[] = [];
 for (let i = 0; i < 5; i++) {
