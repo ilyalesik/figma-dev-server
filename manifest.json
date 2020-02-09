@@ -1,0 +1,7 @@
+{
+  "name": "figma-dev-server",
+  "id": "808286307467802244",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html"
+}
