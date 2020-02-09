@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "webpack:watch": "webpack --watch",
-    "build": "webpack"
+    "build": "webpack",
+    "start": "webpack-dev-server --open"
   },
   "devDependencies": {
     "html-webpack-inline-source-plugin": "^0.0.10",
@@ -14,6 +15,7 @@
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.5",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.3"
   }
 }

@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path');
 
 module.exports = (env, argv) => ({
-    mode: argv.mode === 'production' ? 'production' : 'development',
+    mode: 'development',
 
     // This is necessary because Figma's 'eval' works differently than normal eval
     devtool: argv.mode === 'production' ? false : 'inline-source-map',
@@ -25,6 +25,10 @@ module.exports = (env, argv) => ({
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'), // Compile into a folder called "dist"
+    },
+
+    devServer: {
+        contentBase: './dist',
     },
 
     // Tells Webpack to generate "ui.html" and to inline "ui.ts" into it
