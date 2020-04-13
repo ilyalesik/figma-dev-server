@@ -23,7 +23,7 @@ module.exports = (env, argv) => ({
 
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'public'), // Compile into a folder called "dist"
+        publicPath: "http://localhost:8080/"
     },
 
     devServer: {
@@ -33,6 +33,10 @@ module.exports = (env, argv) => ({
         ],
         watchOptions: { aggregateTimeout: 300, poll: 1000 },
         disableHostCheck: true,
+        hot: true,
+        injectHot: true,
+        injectClient: true,
+        publicPath: "http://localhost:8080/",
         headers: {
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
