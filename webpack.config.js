@@ -14,7 +14,7 @@ module.exports = (env, argv) => ({
     module: {
         rules: [
             // Converts TypeScript code to JavaScript
-            { test: /\.tsx?$/, use: 'ts-loader', exclude: /node_modules/ },
+            { test: /\.ts?$/, use: 'babel-loader', exclude: /node_modules/ },
         ],
     },
 
@@ -23,17 +23,19 @@ module.exports = (env, argv) => ({
 
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'dist'), // Compile into a folder called "dist"
+        path: path.resolve(__dirname, 'public'), // Compile into a folder called "dist"
     },
 
     devServer: {
-        contentBase: './dist',
-        historyApiFallback: true,
+        sockPort: 8080,
+        allowedHosts: [
+            "*"
+        ],
         watchOptions: { aggregateTimeout: 300, poll: 1000 },
+        disableHostCheck: true,
         headers: {
             "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
         }
     }
 });
