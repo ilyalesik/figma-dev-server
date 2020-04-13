@@ -36,7 +36,6 @@ module.exports = (env, argv) => ({
         hot: true,
         injectHot: true,
         injectClient: true,
-        publicPath: "http://localhost:8080/",
         headers: {
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
